@@ -1,0 +1,8 @@
+.DS_Store
+.idea/
+.metadata/
+.classpath
+.project
+bin/
+.settings/
+node_modules/
