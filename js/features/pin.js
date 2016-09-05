@@ -4,7 +4,7 @@ var wd = require("wd");
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
 var expect = require("chai").expect;
-var user = 'mad2tyhgdd@fduv.de';
+var user = 'marjngjnoi78y7uo@fduv.de';
 var pass = 'dsdfdr56g';
 var firstname = 'Max Mustermann';
 var age = '28';
@@ -86,7 +86,7 @@ describe("pinterest", function () {
             .click()
             .waitForElementByXPath("//*[@text='Technology']",4000)
             .click()
-            .waitForElementById("com.pinterest:id/nux_interests_picker_continue_btn",4000)
+            .waitForElementById("com.pinterest:id/nux_interests_picker_continue_btn",5000)
             .click();
     });
 
@@ -147,6 +147,28 @@ describe("pinterest", function () {
     it("Should fail to find Waldo", function () {
         return browser
             .waitForElementByXPath("//*[@content-desc='Waldo']",1000).should.eventually.be.rejected;
+    });
+
+    it("Delete the Board", function () {
+        return browser
+            .waitForElementByXPath("//*[@text='NEW TEST']",4000)
+            .click()
+            .waitForElementByXPath("//android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.support.v4.view.ViewPager[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.view.View[1]/android.widget.ImageView[1]",4000)
+            .click()
+            .waitForElementByXPath("//*[@text='Delete board']",4000)
+            .click()
+            .waitForElementById("com.pinterest:id/positive_bt",4000)
+            .click();
+    });
+
+    it("Unlike the Pin", function () {
+        return browser
+            .waitForElementByXPath("iveLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]",4000)
+            .click()
+            .waitForElementByXPath("//android.widget.AdapterView[1]/android.view.View[1]",4000)
+            .click()
+            .waitForElementById("com.pinterest:id/menu_like",4000)
+            .click()
     });
 
 });
